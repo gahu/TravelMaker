@@ -150,4 +150,4 @@ Aborting
 
 ***
 ## coding convention
-- 개발 tool 은 VSCode 를 사용한다.
+- 개발 tool 은 AndroidStudio 3.0를 사용한다.
