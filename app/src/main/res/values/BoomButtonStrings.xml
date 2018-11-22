@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 시용자 지정 텍스트 리소스 -->
+
+<resources>
+    <string name="item_text">This is topic!!</string>
+    <string name="item_sub_text">This is subtext!!</string>
+</resources>
