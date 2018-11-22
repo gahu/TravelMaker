@@ -40,17 +40,6 @@
             android:background="@android:color/white"
             android:layout_above="@+id/next"
             android:layout_alignParentStart="true" />
-        <Button
-            android:id="@+id/skip"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@null"
-            android:text="skip"
-            android:textSize="20dp"
-            android:textColor="@android:color/white"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="34dp" />
 
     </RelativeLayout>
 

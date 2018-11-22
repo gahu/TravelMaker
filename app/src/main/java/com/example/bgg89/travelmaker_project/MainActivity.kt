@@ -9,6 +9,9 @@ import android.os.Bundle
 import android.content.Intent
 import android.view.View
 import android.widget.Button
+import android.view.WindowManager
+
+
 
 //import com.example.bgg89.travelmaker_project.GPS.GPSProvider
 
@@ -19,6 +22,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN)
         setContentView(R.layout.activity_main)
         b1 = findViewById(R.id.b1) as Button;
     }

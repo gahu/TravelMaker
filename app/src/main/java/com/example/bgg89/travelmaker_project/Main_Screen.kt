@@ -72,6 +72,20 @@ class MainScreen : AppCompatActivity() {
         }
         screens = intArrayOf(R.layout.intro_screen_1, R.layout.intro_screen_2, R.layout.intro_screen_3)
         ColoredBars(0)
+
+        val myThread = object : Thread() {
+            override fun run() {
+                try {
+                    Thread.sleep(1200)
+                    val intent = Intent(applicationContext, MainActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                } catch (e: InterruptedException) {
+                    e.printStackTrace()
+                }
+            }
+        }
+        myThread.start()
     }
 
     fun next(v: View) {
