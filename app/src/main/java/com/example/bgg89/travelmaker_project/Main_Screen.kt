@@ -21,7 +21,7 @@ import android.view.View
 /**
  * Created by bgg89 on 2018-11-22.
  */
-class MainScreen : AppCompatActivity() {
+class Main_Screen : AppCompatActivity() {
 
     protected lateinit var preferenceManager: PreferenceManager
     lateinit var Layout_bars: LinearLayout
@@ -60,7 +60,7 @@ class MainScreen : AppCompatActivity() {
         setContentView(R.layout.activity_main_screen)
         vp = findViewById<View>(R.id.view_pager) as ViewPager
         Layout_bars = findViewById<View>(R.id.layoutBars) as LinearLayout
-        Skip = findViewById<View>(R.id.skip) as Button
+//        Skip = findViewById<View>(R.id.skip) as Button
         Next = findViewById<View>(R.id.next) as Button
         myvpAdapter = MyViewPagerAdapter()
         vp.adapter = myvpAdapter
@@ -125,7 +125,7 @@ class MainScreen : AppCompatActivity() {
 
     private fun launchMain() {
         preferenceManager.setFirstTimeLaunch(false)
-        startActivity(Intent(this@MainScreen, MainActivity::class.java))
+        startActivity(Intent(this@Main_Screen, MainActivity::class.java))
         finish()
     }
 
