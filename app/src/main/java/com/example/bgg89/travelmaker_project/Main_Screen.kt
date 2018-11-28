@@ -60,7 +60,11 @@ class Main_Screen : AppCompatActivity() {
         setContentView(R.layout.activity_main_screen)
         vp = findViewById<View>(R.id.view_pager) as ViewPager
         Layout_bars = findViewById<View>(R.id.layoutBars) as LinearLayout
+<<<<<<< HEAD
 //        Skip = findViewById<View>(R.id.skip) as Button
+=======
+        // Skip = findViewById<View>(R.id.skip) as Button
+>>>>>>> 434d7b234ffcf5bf0efb6b53f5b10c6b7163ab3e
         Next = findViewById<View>(R.id.next) as Button
         myvpAdapter = MyViewPagerAdapter()
         vp.adapter = myvpAdapter
