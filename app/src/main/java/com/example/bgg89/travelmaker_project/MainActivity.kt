@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
     fun replay(view: View) {
         val preferenceManager = PreferenceManager(applicationContext)
         preferenceManager.setFirstTimeLaunch(true)
-        startActivity(Intent(this@MainActivity, MainScreen::class.java))
+        startActivity(Intent(this@MainActivity, Main_Screen::class.java))
         finish()
     }
 

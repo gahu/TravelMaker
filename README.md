@@ -7,7 +7,7 @@
 ## push를 하기 전에
 push를 하기 전에 꼭 자신의 PC에 백업 폴더를 하나 만들어 놓는것이 좋다.
 git상 최신으로 올라온 자료를 다운 받으면서 필요없는 부분이나 삭제된 부분이 전부 반영되기 때문에 작업한 내용이 전부 날아갈 수 있기 때문이다.
-물론 redo를 사용하면 되긴 하지만 까다롭기 때문에 꼭 `backup`을 추천한다.
+물론 redo를 사용하면 되긴 하지만 까다롭기 때문에 꼭 *`backup`*을 추천한다.
 
 ***
 ## git config env
@@ -29,9 +29,9 @@ $ git config --global user.email {email}
 $ git clone git@github.com:gahu/TravelMaker.git
 ```
 5. 프로젝트의 push url 설정
-백업 프로젝트를 만들어서 fork한 후 branch를 여기로 따는 방법.
-- 프로젝트 push 는 fork 된 프로젝트로 (ex) gahu/TravelMaker
-- merge request 는 본 프로젝트로 (ex) gahu/TravelMaker
+>백업 프로젝트를 만들어서 fork한 후 branch를 여기로 따는 방법.
+ - 프로젝트 push 는 fork 된 프로젝트로 (ex) gahu/TravelMaker
+ - merge request 는 본 프로젝트로 (ex) gahu/TravelMaker
 ```
 $ git remote add origin git@github.com:gahu/TravelMaker.git
 $ git remote set-url --push origin git@github.com:gahu/TravelMaker.git

@@ -16,14 +16,12 @@
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
             android:id="@+id/imageView"
-            android:scaleType="centerCrop" />
+            android:scaleType="fitXY" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="GO TO TRAVEL"
             android:textColor="@android:color/white"
-            android:textSize="50dp"
             android:textStyle="bold"
             android:layout_below="@+id/imageView"
             android:layout_centerHorizontal="true"
