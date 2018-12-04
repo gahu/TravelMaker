@@ -19,7 +19,6 @@ import com.ramotion.expandingcollection.ECBackgroundSwitcherView
 import com.ramotion.expandingcollection.ECCardData
 import com.ramotion.expandingcollection.ECPagerView
 import com.ramotion.expandingcollection.ECPagerViewAdapter
-import kotlinx.android.synthetic.main.activity_main_screen.*
 
 class TravelListActivity : AppCompatActivity() {
     private var ecPagerView : ECPagerView? = null

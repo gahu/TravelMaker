@@ -23,7 +23,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.*
-import kotlinx.android.synthetic.main.activity_main.*
 
 import com.alexvasilkov.android.commons.texts.SpannableBuilder
 import com.alexvasilkov.foldablelayout.UnfoldableView
@@ -36,7 +35,6 @@ import com.example.bgg89.travelmaker_project.Painting
 import com.example.bgg89.travelmaker_project.PaintingsAdapter
 import com.example.bgg89.travelmaker_project.GlideHelper
 import com.alexvasilkov.foldablelayout.shading.GlanceFoldShading
-import kotlinx.android.synthetic.main.activity_main_screen.*
 import java.util.*
 import kotlin.concurrent.timerTask
 
