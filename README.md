@@ -7,7 +7,7 @@
 ## push를 하기 전에
 push를 하기 전에 꼭 자신의 PC에 백업 폴더를 하나 만들어 놓는것이 좋다.
 git상 최신으로 올라온 자료를 다운 받으면서 필요없는 부분이나 삭제된 부분이 전부 반영되기 때문에 작업한 내용이 전부 날아갈 수 있기 때문이다.
-물론 redo를 사용하면 되긴 하지만 까다롭기 때문에 꼭 *`backup`*을 추천한다.
+물론 redo를 사용하면 되긴 하지만 까다롭기 때문에 꼭 backup을 추천한다.
 
 ***
 ## git config env
@@ -29,9 +29,9 @@ $ git config --global user.email {email}
 $ git clone git@github.com:gahu/TravelMaker.git
 ```
 5. 프로젝트의 push url 설정
->백업 프로젝트를 만들어서 fork한 후 branch를 여기로 따는 방법.
- - 프로젝트 push 는 fork 된 프로젝트로 (ex) gahu/TravelMaker
- - merge request 는 본 프로젝트로 (ex) gahu/TravelMaker
+백업 프로젝트를 만들어서 fork한 후 branch를 여기로 따는 방법.
+- 프로젝트 push 는 fork 된 프로젝트로 (ex) gahu/TravelMaker
+- merge request 는 본 프로젝트로 (ex) gahu/TravelMaker
 ```
 $ git remote add origin git@github.com:gahu/TravelMaker.git
 $ git remote set-url --push origin git@github.com:gahu/TravelMaker.git
@@ -56,73 +56,27 @@ Firstly make sure that you have Node and Git installed. Next clone this repo htt
 ```
 git clone https://github.com/gahu/TravelMaker.git
 ```
-## coding convention
-- 개발 tool 은 `AndroidStudio 3.2.1`를 사용한다.
-- target SDK : `26`, min sdk : `23`
-```android
-apply plugin: 'com.android.application'
-
-apply plugin: 'kotlin-android'
-
-apply plugin: 'kotlin-android-extensions'
-
-android {
-    compileSdkVersion 26
-    defaultConfig {
-        applicationId "com.example.bgg89.travelmaker_project"
-        minSdkVersion 23
-        targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-    }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-}
-
-dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:26.1.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
-    implementation 'com.rm:longpresspopup:1.0.1'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-}
+then change into that folder
 ```
-- build.gradle
-```android
-buildscript {
-    ext.kotlin_version = '1.2.51'
-    repositories {
-        google()
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:3.2.1'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
-    }
-}
-
-allprojects {
-    repositories {
-        google()
-        jcenter()
-    }
-}
-
-task clean(type: Delete) {
-    delete rootProject.buildDir
-}
+cd TravelMaker
 ```
+install yarn (select)
+```javascript
+npm install -g yarn
+```
+install the necessary packages locally
+```
+npm install
+yarn install
+```
+and start up a local server
+```
+npm start
+yarn start
+```
+Now visit localhost:3000 from your browser. Now your app should be up and running.
+
+***
 ## project push 정책
 1. 모든 contributor 는 로컬에서 개인 branch 를 따서 작업한다.
 - Merge request 는 fork 한 repository 에 새로운 브랜치를 따서 등록한다.
@@ -195,3 +149,5 @@ Aborting
 [stash와 관련된 내용]: (http://wit.nts-corp.com/2014/03/25/1153)
 
 ***
+## coding convention
+- 개발 tool 은 AndroidStudio 3.0를 사용한다.

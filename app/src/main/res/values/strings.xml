@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">TravelMaker_Project</string>
+    <string name="year">Year</string>
+    <string name="location">Location</string>
+
+    <string name="default_text">Flight</string>
+    <string name="planning_button">Scheduling</string>
+    <string name="default_subtext">Click to arrange schedule!!</string>
 </resources>

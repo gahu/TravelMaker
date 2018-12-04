@@ -36,13 +36,13 @@ class Main_Screen : AppCompatActivity() {
 
         override fun onPageSelected(position: Int) {
             ColoredBars(position)
-//            if (position == screens!!.size - 1) {
+            if (position == screens!!.size - 1) {
                 Next.setText("start")
                 Skip.setVisibility(View.GONE)
-//            } else {
-//                Next.setText("next")
-//                Skip.setVisibility(View.VISIBLE)
-//            }
+            } else {
+                Next.setText("next")
+                Skip.setVisibility(View.VISIBLE)
+            }
         }
 
         override fun onPageScrolled(arg0: Int, arg1: Float, arg2: Int) {
@@ -60,8 +60,8 @@ class Main_Screen : AppCompatActivity() {
         setContentView(R.layout.activity_main_screen)
         vp = findViewById<View>(R.id.view_pager) as ViewPager
         Layout_bars = findViewById<View>(R.id.layoutBars) as LinearLayout
-//        Next = findViewById<View>(R.id.next) as Button
-        Skip = findViewById<View>(R.id.skip) as Button
+        // Skip = findViewById<View>(R.id.skip) as Button
+        Next = findViewById<View>(R.id.next) as Button
         myvpAdapter = MyViewPagerAdapter()
         vp.adapter = myvpAdapter
         preferenceManager = PreferenceManager(this)
@@ -70,23 +70,22 @@ class Main_Screen : AppCompatActivity() {
             launchMain()
             finish()
         }
-        // intro Image loading
-        screens = intArrayOf(R.layout.intro_screen_1, R.layout.intro_screen_2)
+        screens = intArrayOf(R.layout.intro_screen_1, R.layout.intro_screen_2, R.layout.intro_screen_3)
         ColoredBars(0)
-//
-//        val myThread = object : Thread() {
-//            override fun run() {
-//                try {
-//                    Thread.sleep(2000)
-//                    val intent = Intent(applicationContext, MainActivity::class.java)
-//                    startActivity(intent)
-//                    finish()
-//                } catch (e: InterruptedException) {
-//                    e.printStackTrace()
-//                }
-//            }
-//        }
-//        myThread.start()
+
+        val myThread = object : Thread() {
+            override fun run() {
+                try {
+                    Thread.sleep(1200)
+                    val intent = Intent(applicationContext, MainActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                } catch (e: InterruptedException) {
+                    e.printStackTrace()
+                }
+            }
+        }
+        myThread.start()
     }
 
     fun next(v: View) {
@@ -135,15 +134,14 @@ class Main_Screen : AppCompatActivity() {
 
         override fun instantiateItem(container: ViewGroup, position: Int): Any {
             inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-//            val view = inflater!!.inflate(screens!![position], container, false)
-            val view = inflater!!.inflate(R.layout.intro_screen_1, container, false)
+            val view = inflater!!.inflate(screens!![position], container, false)
             container.addView(view)
             return view
         }
 
         override fun getCount(): Int {
 //            return screens.size
-            return 2
+            return 3
         }
 
         override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {

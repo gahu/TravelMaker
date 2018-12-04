@@ -24,11 +24,11 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/skip"
+            android:id="@+id/next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@null"
-            android:text="SKIP"
+            android:text="next"
             android:textSize="20dp"
             android:textColor="@android:color/white"
             android:layout_alignParentBottom="true"
