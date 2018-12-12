@@ -1,15 +1,21 @@
 package com.transferwise.sequencelayout
 
+import android.app.Activity
+import android.content.ComponentName
 import android.content.Context
+import android.content.Intent
 import android.content.res.TypedArray
 import android.support.annotation.StringRes
 import android.support.annotation.StyleRes
+import android.support.v4.app.ActivityCompat.startActivityForResult
 import android.support.v4.widget.TextViewCompat
 import android.util.AttributeSet
 import android.view.View
 import android.widget.TableRow
 import android.widget.TextView
+import android.widget.Toast
 import kotlinx.android.synthetic.main.sequence_step.view.*
+import kotlinx.android.synthetic.main.*
 
 /**
  * Step, represented in a row inside of {@link com.transferwise.sequencelayout.SequenceLayout}.
@@ -66,7 +72,6 @@ public class SequenceStep(context: Context?, attrs: AttributeSet?)
 
         attributes.recycle()
     }
-
     /**
      * Sets the anchor label
      *
@@ -232,4 +237,7 @@ public class SequenceStep(context: Context?, attrs: AttributeSet?)
                 view.measuredHeight
             }
 
+    public fun getAnchorText() : CharSequence {
+        return this.anchor.text
+    }
 }

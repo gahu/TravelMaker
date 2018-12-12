@@ -13,6 +13,7 @@ import android.view.ViewTreeObserver
 import android.view.animation.LinearInterpolator
 import android.widget.FrameLayout
 import kotlinx.android.synthetic.main.sequence_layout.view.*
+import kotlinx.android.synthetic.main.sequence_step.view.*
 
 /**
  * Vertical step tracker that contains {@link com.transferwise.sequencelayout.SequenceStep}s and animates to the first active step.
@@ -138,7 +139,7 @@ public class SequenceLayout(context: Context?, attrs: AttributeSet?, defStyleAtt
         progressBarWrapper.translationX = firstAnchor.measuredWidth + 4.toPx() - (progressBarWrapper.measuredWidth / 2f) //TODO dynamic dot size
     }
 
-    private fun placeDots() {
+    public fun placeDots() {
         dotsWrapper.removeAllViews()
         var firstOffset = 0
         var lastOffset = 0

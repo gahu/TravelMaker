@@ -1,42 +1,26 @@
 package com.example.bgg89.travelmaker_project
 
 import android.annotation.SuppressLint
-import android.app.Activity
-import android.content.ComponentName
-import android.content.Context
-import android.location.Location
-import android.location.LocationListener
-import android.location.LocationManager
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.content.Intent
 import android.content.pm.ActivityInfo
-import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.graphics.Typeface
-import android.icu.lang.UCharacter.GraphemeClusterBreak.V
 
 
-import android.text.TextUtils
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.*
-import kotlinx.android.synthetic.main.activity_main.*
 
-import com.alexvasilkov.android.commons.texts.SpannableBuilder
 import com.alexvasilkov.foldablelayout.UnfoldableView
-import com.alexvasilkov.android.commons.adapters.ItemsAdapter
-import com.alexvasilkov.android.commons.ui.Views
 import com.alexvasilkov.android.commons.ui.Views.find
 
-import com.example.bgg89.travelmaker_project.R
-import com.example.bgg89.travelmaker_project.Painting
-import com.example.bgg89.travelmaker_project.PaintingsAdapter
-import com.example.bgg89.travelmaker_project.GlideHelper
+import com.example.bgg89.travelmaker_project.Data.Painting
+import com.example.bgg89.travelmaker_project.Adapters.PaintingsAdapter
 import com.alexvasilkov.foldablelayout.shading.GlanceFoldShading
-import kotlinx.android.synthetic.main.activity_main_screen.*
+import com.example.bgg89.travelmaker_project.Data.GlideHelper
 import java.util.*
 import kotlin.concurrent.timerTask
 
@@ -48,6 +32,7 @@ class MainActivity : AppCompatActivity(){
     lateinit var listTouchInterceptor : View
     lateinit var detailsLayout : View
     lateinit var unfoldableView : UnfoldableView
+    lateinit var listView : ListView
 
     @SuppressLint("ResourceType")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,7 +45,7 @@ class MainActivity : AppCompatActivity(){
         setContentView(R.layout.activity_unfoldable_details)
 //        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
-        var listView : ListView = find(this, R.id.list_view)
+        listView = find(this, R.id.list_view)
         listView.adapter = PaintingsAdapter(this)
 
         listTouchInterceptor = find(this, R.id.touch_interceptor_view)
@@ -104,32 +89,45 @@ class MainActivity : AppCompatActivity(){
         val image : ImageView = find(detailsLayout, R.id.details_image)
         val timer = Timer()
         GlideHelper().loadPaintingImage(image, painting)
-        val nextIntent = Intent(this@MainActivity, TravelListActivity::class.java)
-        if(painting.title == "Starry Night"){
-            nextIntent.putExtra("Kind", "Schedule")
-        } else if(painting.title == "Cafe Terrace at Night"){
-            nextIntent.putExtra("Kind", "Spend")
-        }
+        var nextIntent = Intent(this@MainActivity, TravelListActivity::class.java)
 
+        if(painting.title == "일정관리"){
+            nextIntent.putExtra("Kind", "Schedule")
+        } else if(painting.title == "지출내역관리"){
+            nextIntent.putExtra("Kind", "Spend")
+        } else if(painting.title == "카메라"){
+            nextIntent = Intent(this@MainActivity, CameraActivity::class.java)
+            nextIntent.flags = Intent.FLAG_ACTIVITY_NEW_DOCUMENT or Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED
+        } else if(painting.title == "지도"){
+            nextIntent = Intent(this@MainActivity, MapActivity::class.java)
+        }
         unfoldableView.unfold(coverView, detailsLayout)
         timer.schedule(timerTask {
             startActivityForResult(nextIntent, 1)
             overridePendingTransition(0, 0)
-     //       finish()
+            //       finish()
         }, 522)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+//        val image : ImageView = find(detailsLayout, R.id.details_image)
+
+//        if(data != null){
+//            val temp = data.extras["ImageId"] as Int
+//            val painting = Painting(temp , "")
+//            GlideHelper().loadPaintingImage(image, painting)
+//        }
         unfoldableView.foldBack()
+        listView.adapter = PaintingsAdapter(this)
     }
 
-    fun replay(view: View) {
-        val preferenceManager = PreferenceManager(applicationContext)
-        preferenceManager.setFirstTimeLaunch(true)
-        startActivity(Intent(this@MainActivity, Main_Screen::class.java))
-        finish()
-    }
+//    fun replay(view: View) {
+//        val preferenceManager = PreferenceManager(applicationContext)
+//        preferenceManager.setFirstTimeLaunch(true)
+//        startActivity(Intent(this@MainActivity, Main_Screen::class.java))
+//        finish()
+//    }
 
 //    fun initGPS() {
 //        var mlocManager: LocationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager

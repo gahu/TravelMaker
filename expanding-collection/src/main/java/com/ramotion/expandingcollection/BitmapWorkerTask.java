@@ -26,6 +26,8 @@ public class BitmapWorkerTask extends AsyncTask<Integer, Void, Bitmap> {
     protected Bitmap doInBackground(Integer... params) {
         Integer key = params[0];
         Bitmap cachedBitmap = cache.getBitmapFromBgMemCache(key);
+        cachedBitmap.recycle();
+        cachedBitmap = null;
         if (cachedBitmap == null) {
             cachedBitmap = BitmapFactory.decodeResource(mResources, mProvidedBitmapResId, new BitmapFactoryOptions());
             cache.addBitmapToBgMemoryCache(key, cachedBitmap);

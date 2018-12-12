@@ -127,6 +127,8 @@ public class ECBackgroundSwitcherView extends ImageSwitcher {
         int position = pager.getCurrentPosition();
         BackgroundBitmapCache instance = BackgroundBitmapCache.getInstance();
         Bitmap cachedBitmap = instance.getBitmapFromBgMemCache(position);
+        cachedBitmap.recycle();
+        cachedBitmap = null;
         if (cachedBitmap == null) {
             Integer mainBgImageDrawableResource = pager.getDataFromAdapterDataset(position).getMainBackgroundResource();
             if (mainBgImageDrawableResource == null) return;
@@ -156,6 +158,8 @@ public class ECBackgroundSwitcherView extends ImageSwitcher {
 
     private void setImageBitmap(Bitmap bitmap) {
         ImageView image = (ImageView) this.getNextView();
+        bitmap.recycle();
+        bitmap = null;
         image.setImageBitmap(bitmap);
         showNext();
     }

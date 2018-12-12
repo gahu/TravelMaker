@@ -27,6 +27,8 @@ public class BackgroundBitmapCache {
         mBackgroundsCache = new LruCache<Integer, Bitmap>(cacheSize) {
             @Override
             protected void entryRemoved(boolean evicted, Integer key, Bitmap oldValue, Bitmap newValue) {
+                oldValue.recycle();
+                newValue.recycle();
                 super.entryRemoved(evicted, key, oldValue, newValue);
             }
 
@@ -39,6 +41,7 @@ public class BackgroundBitmapCache {
     }
 
     public void addBitmapToBgMemoryCache(Integer key, Bitmap bitmap) {
+        bitmap.recycle();
         if (getBitmapFromBgMemCache(key) == null) {
             mBackgroundsCache.put(key, bitmap);
         }

@@ -14,7 +14,8 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="28dp"
         android:ellipsize="end"
-        android:maxLines="1"
+        android:maxLines="3"
+        android:lineSpacingExtra="-4dp"
         android:maxWidth="@dimen/sequence_anchor_max_width"
         android:paddingEnd="16dp"
         android:paddingStart="0dp"
@@ -41,4 +42,20 @@
             android:layout_marginTop="8dp"
             tools:text="More text More text More text\nMore text More text More text More text More text "/>
     </LinearLayout>
+
+    <Button
+        android:id="@+id/change"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="left"
+        android:layout_marginTop="8dp"
+        android:text="수정" />
+
+    <Button
+        android:id="@+id/delete"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="left"
+        android:layout_marginTop="8dp"
+        android:text="삭제"/>
 </merge>
