@@ -38,11 +38,7 @@ class CameraActivity : AppCompatActivity() {
         val permissionCamera = ContextCompat.checkSelfPermission(applicationContext, CAMERA)
         if (permissionWriteStorage != PackageManager.PERMISSION_GRANTED || permissionCamera != PackageManager.PERMISSION_GRANTED) {
             if (permissionWriteStorage != PackageManager.PERMISSION_GRANTED) {
-<<<<<<< HEAD
                 ActivityCompat.requestPermissions(this@CameraActivity, arrayOf(WRITE_EXTERNAL_STORAGE, CAMERA), REQUEST_EXTERNAL_STORAGE)
-=======
-                ActivityCompat.requestPermissions(parent, arrayOf(WRITE_EXTERNAL_STORAGE, CAMERA), REQUEST_EXTERNAL_STORAGE)
->>>>>>> eab82372c8e5a3d8e1fb77dd2b4e0956923de007
             }
         } else {
             try {
