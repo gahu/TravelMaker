@@ -134,9 +134,9 @@ class SpendMainActivity() : AppCompatActivity() {
 
             }
         }
-        JSONTASK().execute("https://www.koreaexim.go.kr/site/program/financial/exchangeJSON?authkey=gR4EPXDe99JEZqkPsGgOis1A8i5FtCZj&searchdate=20181206&data=AP01")
+        JSONTASK().execute("https://www.koreaexim.go.kr/site/program/financial/exchangeJSON?authkey="YOUR API KEY"&searchdate=20181206&data=AP01")
         convertBtn.setOnClickListener {
-            JSONTASK().execute("https://www.koreaexim.go.kr/site/program/financial/exchangeJSON?authkey=gR4EPXDe99JEZqkPsGgOis1A8i5FtCZj&searchdate=20181206&data=AP01")
+            JSONTASK().execute("https://www.koreaexim.go.kr/site/program/financial/exchangeJSON?authkey="YOUR API KEY"&searchdate=20181206&data=AP01")
             currency1?.isEnabled = false
             var appendString = ""
             val inputValue = currency1?.text?.toString()?.toDoubleOrNull() ?: 0.toDouble()
